@@ -1,0 +1,25 @@
+import java.util.*;
+class Result {
+  static int findWinner(int[] arr, int N) {
+	// Write Your Code here
+    //int val = 0;
+    Arrays.sort(arr);
+    int val = -1;
+    for(int i = 0;i<N-1;i++)
+    {
+      int temp = arr[i];
+      int cnt = 1;
+      while((i+1)<N && arr[i+1] == temp)
+      {
+        cnt++;
+        i++;
+      }
+      if(cnt > N/2)
+      {
+        val = temp;
+        break;
+      }
+    }
+    return val;
+  }
+}

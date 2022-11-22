@@ -1,0 +1,29 @@
+/*     
+ * Complete the 'findAverage' function below.
+ * @params
+ *   n -> integer denoting the number of cities from 1 to n
+ *   m -> integer denoting the number of phases
+ *   arr -> 2-D array with 'm' rows, where arr[i][0] denotes 'a',
+ *          arr[i][1] denotes 'b' and arr[i][2] denotes 'k' for the ith phase
+ *
+ * @return
+ *   An integer denoting the average number of people settled per city.
+ */
+static int findAverage(int n, int m, int[][] arr) {
+  // Write your code here
+   if(n <= 0 || m <= 0)
+   {
+     return 0;
+   }
+   long sum = 0;
+   int row = 0;
+   while(m-- != 0)
+   {
+     int a = arr[row][0];
+     int b = arr[row][1];
+     int k = arr[row][2];
+     sum += k*(b-a+1);
+     row++;
+   }
+   return (int)(sum/n);
+}

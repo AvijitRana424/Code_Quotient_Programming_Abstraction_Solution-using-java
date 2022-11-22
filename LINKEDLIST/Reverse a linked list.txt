@@ -1,0 +1,27 @@
+/* 
+  class Node {
+    int data;
+    Node next;
+    Node(){}
+    Node(int d) {
+      data=d;
+    }
+  }
+  The above class defines the linked list node.
+*/
+class Result {
+  static Node reverseList(Node head) {
+    // Write your code here
+    Node cur = head;
+    Node prev = null;
+    Node forward = null;
+    while(cur != null)
+    {
+      forward = cur.next;
+      cur.next = prev;
+      prev = cur;
+      cur = forward;
+    }
+    return prev;
+  }
+}

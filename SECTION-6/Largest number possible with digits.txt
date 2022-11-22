@@ -1,0 +1,36 @@
+class Result {
+  static int findSum(int n)
+  {
+     int sum = 0;
+     while(n != 0)
+     {
+       sum += n%10;
+       n /= 10;
+     }
+     return sum;
+  }
+  static int formLargestNumber(int S, int D) {
+    // Write your code here
+     if(S == 0 && D != 1)
+     {
+       return -1;
+     }
+     int large = 0;
+     for(int i = 0;i<D;i++)
+     {
+       large = large*10+9;
+     }
+     int lsum = findSum(large);
+     if(lsum < S)
+     {
+       return -1;
+     }
+     int cl = large;
+     while(findSum(cl) != S)
+     {
+       int aps = findSum(cl)-S;
+       cl -= aps;
+     }
+     return cl;
+  }
+}

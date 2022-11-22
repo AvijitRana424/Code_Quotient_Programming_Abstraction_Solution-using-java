@@ -1,0 +1,40 @@
+/* 
+ *  class LinkList {
+ *    int data;
+ *    LinkList next;
+ *  };
+ *
+ *  The above class defines the linked list node.
+ */
+static int findcnt(LinkList cur1)
+{
+  int cnt1 = 0;
+  while(cur1 != null)
+  {
+    cnt1++;
+    cur1 = cur1.next;
+  }
+  return cnt1;
+}
+static LinkList rotateList(LinkList head, int k) {
+  // Write your code here\
+  LinkList cur = head;
+  LinkList tmp = head;
+  int cnt = findcnt(cur);
+  if(k > cnt)
+  {
+    return head;
+  }
+  //LinkList tmp = head;
+  for(int i = 0;i<k;i++)
+  {
+     while(tmp.next != null)
+     {
+       tmp = tmp.next;
+     }
+    tmp.next = head;
+    head = head.next;
+    tmp.next.next = null;
+  }
+  return head;
+}

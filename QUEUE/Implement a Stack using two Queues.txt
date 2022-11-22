@@ -1,0 +1,16 @@
+/* enqueue(int) & dequeue() are available on the given queues.*/
+class NewStack {
+  java.util.Stack<Integer> str = new java.util.Stack<>();
+  void push(QueueArray qa1, QueueArray qa2, int item) {
+       str.push(item);
+  }
+  int pop(QueueArray qa1, QueueArray qa2) {
+    if(!str.isEmpty())
+    {
+      int val = str.peek();
+      str.pop();
+      return val;
+    }
+    return -1;
+  }
+}

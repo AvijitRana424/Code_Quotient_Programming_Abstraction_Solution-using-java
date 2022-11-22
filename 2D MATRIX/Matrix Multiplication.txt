@@ -1,0 +1,16 @@
+// Print the resultant matrix after (A * B)
+void multiplyMatrix(int A[SIZE][SIZE],int B[SIZE][SIZE],int R1,int C1,int R2,int C2)
+{
+  // Write your code here
+  int C[R1][C2];
+  for (int i = 0; i < R1; i++) {
+    for (int j = 0; j < C2; j++) {
+      C[i][j] = 0;
+      for (int k = 0; k < R2; k++) {
+        C[i][j] += A[i][k] * B[k][j];
+      }
+      cout << C[i][j] << " ";
+    }
+    cout << endl;
+  }
+}

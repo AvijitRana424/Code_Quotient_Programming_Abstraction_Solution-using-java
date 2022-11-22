@@ -1,0 +1,42 @@
+class Result {
+  // Return true if the compiler output will be success, else return false
+  static boolean compilerOutput(String code) {
+	// Write your code here
+    Stack<Character> str = new Stack<>();
+    for(int i = 0;i<code.length();i++)
+    {
+      char ch = code.charAt(i);
+      if(ch == '(' || ch == '{' || ch == '[')
+      {
+        str.push(ch);
+      }
+      else if(ch == ')' || ch == '}' || ch == ']')
+      {
+        if(!str.isEmpty())
+        {
+          char open = str.peek();
+          if((ch == ')' && open == '(') || (ch == '}' && open == '{') || (ch == ']' && open == '['))
+          {
+            str.pop();
+          }
+          else
+          {
+            return false;
+          }
+        }
+        else
+        {
+          return false;
+        }
+      }
+    }
+    if(str.isEmpty())
+    {
+      return true;
+    }
+    else
+    {
+      return false;
+    }
+  }
+}

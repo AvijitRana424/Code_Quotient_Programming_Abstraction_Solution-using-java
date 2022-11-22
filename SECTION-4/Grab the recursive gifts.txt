@@ -1,0 +1,22 @@
+class Result {
+  /*     
+   *  Complete the 'enjoyOffer' function below.
+   *  return the total number of candies for each test case.
+   */
+  static int findCandy(int candy,int z)
+  {
+    //base condition
+    if(candy<z)
+    {
+      return 0;
+    }
+    int newCandy = candy/z;
+    return newCandy+findCandy(newCandy+(candy%z),z);
+  } 
+  public static int enjoyOffer(int X, int Y, int Z) {
+    // Write your code here
+    int candy = X/Y;
+    int val = candy + findCandy(candy,Z);
+    return val;
+  }
+}

@@ -1,0 +1,17 @@
+class Result {
+  // Return the minimum number of integers required so that the array contains all consecutive numbers
+  static int fillTheGaps(int[] arr) {
+	// Write your code here
+    Arrays.sort(arr);
+    int sum = 0;
+    for(int i= 0;i<arr.length-1;i++)
+    {
+      int diff = Math.abs(arr[i]-arr[i+1])-1;
+      if(diff > 0)
+      {
+        sum += diff;
+      }
+    }
+    return sum;
+  }
+}

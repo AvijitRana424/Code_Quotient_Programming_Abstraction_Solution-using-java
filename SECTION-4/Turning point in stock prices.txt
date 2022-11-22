@@ -1,0 +1,39 @@
+class Result {
+  static int turningPoint(int price[], int N) {
+    // Write your code here
+    int a = price[0];
+    int b = price[1];
+    if(a < b)
+    {
+      int max = 0;
+      for(int i = 0;i<N;i++)
+      {
+        int tp = i;
+        if(price[i] < max)
+        {
+          return tp;
+        }
+        else
+        {
+          max = price[i];
+        }
+      }
+    }
+    else
+    {
+      int min = price[0];
+      for(int i = 0;i<N;i++)
+      {
+        int tp = i;
+        if(price[i] > min)
+        {
+          return tp;
+        }
+        else{
+          min = price[i];
+        }
+      }
+    }
+    return -1;
+  }
+}

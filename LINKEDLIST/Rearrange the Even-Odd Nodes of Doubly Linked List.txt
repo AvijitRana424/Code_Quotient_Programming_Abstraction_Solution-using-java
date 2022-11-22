@@ -1,0 +1,43 @@
+/* 
+   *  class Node {
+   *    int data;
+   *    Node next;
+   *    Node prev;
+   *  };
+   *
+   *  The above class defines the linked list node.
+   */
+  static Node rearrangeList(Node head) {
+	// Write your code here
+     if(head == null)
+     {
+       return head;
+     }
+     Node dummy = new Node(-1);
+     Node tmp = dummy;
+     int i = 0;
+     Node cur = head;
+     while(cur != null)
+     {
+        if(i%2 != 0)
+        {
+           tmp.next = new Node(cur.data);
+           tmp = tmp.next;
+        }
+        i++;
+        cur = cur.next;
+     }
+     cur = head;
+     i = 0;
+     while(cur != null)
+     {
+        if(i%2 == 0)
+        {
+           tmp.next = new Node(cur.data);
+           tmp = tmp.next;
+        }
+        i++;
+        cur = cur.next;
+     }
+     return dummy.next;
+  }

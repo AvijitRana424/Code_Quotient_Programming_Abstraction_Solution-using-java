@@ -1,0 +1,30 @@
+// Return the total number of steps to reach a single digit
+static int findSum(long n)
+{
+   int sum = 0;
+   while(n != 0)
+   {
+     sum += n%10;
+     n/=10;
+   }
+  return sum;
+}
+static int totalSteps(long N) {
+  // Write your code here
+  if(N < 10)
+  {
+    return 0;
+  }
+  else
+  {
+    int cnt = 0;
+    long val = N;
+    while(val>9)
+    {
+      int sum = findSum(val);
+      val = sum;
+      cnt++;
+    }
+    return cnt;
+  }
+}

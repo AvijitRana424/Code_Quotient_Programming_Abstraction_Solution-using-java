@@ -1,0 +1,29 @@
+class Result {
+  // Return true if there exists a pair
+  // whose product is greater than double the array sum, else return false
+  static boolean pairExists(int arr[], int N) {
+    // Write your code here
+    if(arr.length == 1)
+    {
+      return false;
+    }
+    int sum = 0;
+    for(int i = 0;i<N;i++)
+    {
+      sum += arr[i];
+    }
+    sum = sum*2;
+    Arrays.sort(arr);
+    boolean flag = false;
+    for(int i = 0;i<N-1;i++)
+    {
+      int j = i+1;
+      if(arr[i]*arr[j] > sum)
+      {
+        flag = true;
+        break;
+      }
+    }
+    return flag;
+  }
+}

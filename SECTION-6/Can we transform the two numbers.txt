@@ -1,0 +1,33 @@
+class Result {
+  /*     
+   * Complete the 'canTransformed' function below.
+   * @params
+   *   a,b,c,d -> integers denoting the values of a,b,c,d respectively
+   * @return
+   *   1 if the numbers can be transformed, else 0
+   */
+  static boolean solve(int a,int b,int c,int d)
+  {
+     if(a == c && b == d)
+     {
+       return true;
+     }
+     if(a > c || b > d)
+     {
+       return false;
+     }
+     return solve(a+b,b,c,d) || solve(a,a+b,c,d);
+  }
+  static int canTransformed(int a, int b, int c, int d) {
+    // Write your code here
+    boolean ans = solve(a,b,c,d);
+    if(ans)
+    {
+      return 1;
+    }
+    else
+    {
+      return 0;
+    }
+  }
+}

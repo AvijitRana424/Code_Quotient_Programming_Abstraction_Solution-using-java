@@ -1,0 +1,41 @@
+class Result {
+  /*     
+   * Complete the 'counterDiagonal' function below.
+   * Print the counter diagonal traversal of the matrix, seperated by space
+   * @params
+   *   mat -> square matrix of size (n x n) 
+   *   n -> integer denoting size of square matrix
+   */
+  static void counterDiagonal(int mat[][], int n) {
+    // Write your code here
+      ArrayList<Integer> list = new ArrayList<>();
+    //this is print first half diagonal
+      for(int i = 0;i<n;i++)
+      {
+        int row1 = 0;
+        int col1 = i;
+        while(col1 >= 0 && row1 < n)
+        {
+          list.add(mat[row1][col1]);
+          row1++;
+          col1--;
+        }
+      }
+    //this is print second last half diagonal
+    for(int i = 1;i<n;i++)
+    {
+      int row = i;
+      int col = n-1;
+      while(row < n && col >= 1)
+      {
+        list.add(mat[row][col]);
+        row++;
+        col--;
+      }
+    }
+    for(int i = 0;i<list.size();i++)
+    {
+      System.out.print(list.get(i)+" ");
+    }
+  }
+}

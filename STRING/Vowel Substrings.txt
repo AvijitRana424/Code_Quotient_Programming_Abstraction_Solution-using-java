@@ -1,0 +1,16 @@
+class Result {
+  static int countVowelSubstr(String str) {
+    // Write your code here
+    String txt = "AEIOUaeiou";
+    int cnt = 0;
+    for(int i = 0;i<str.length();i++)
+    {
+      if(txt.indexOf(str.charAt(i)) != -1)
+      {
+        cnt += str.length() - i;
+        cnt %= 10007;
+      }
+    }
+    return cnt%10007;
+  }
+}

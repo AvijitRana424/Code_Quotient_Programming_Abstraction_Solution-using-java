@@ -1,0 +1,44 @@
+import java.util.Scanner;
+// Other imports go here, Do NOT change the class name
+class Main
+{
+  public static void main(String[] args)
+  {
+    // Write your code here
+    Scanner sc = new Scanner(System.in);
+    int t = sc.nextInt();
+    while(t-- != 0)
+    {
+      int n = sc.nextInt();
+      int arr[][] = new int[n][n];
+      for(int i = 0;i<arr.length;i++)
+      {
+        for(int j = 0;j<arr.length;j++)
+        {
+          arr[i][j] = sc.nextInt();
+        }
+      }
+      int res[][] = new int[n][n];
+      int len = arr.length-1;
+      for(int i = 0;i<arr.length;i++)
+      {
+        for(int j = 0;j<arr.length;j++)
+        {
+             //int temp = arr[i][j];
+             res[j][len] = arr[i][j];
+             //arr[j][len] = temp;     
+        }
+        len--;
+      }
+      for(int i = 0;i<res.length;i++)
+      {
+        for(int j = 0;j<res.length-1;j++)
+        {
+          System.out.print(res[i][j]+" ");
+        }
+        System.out.println(res[i][res.length-1]);
+      } 
+      System.out.println();
+    }
+  }
+}

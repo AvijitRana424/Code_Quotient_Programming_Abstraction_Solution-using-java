@@ -1,0 +1,23 @@
+// Do not print anything, the output will be printed automatically in the backend.
+// You just need to modify the given matrix by rotating it.
+void rotateImage(vector<vector<int>> &arr, int N) {
+  // Write your code here
+  for(int i=0;i<N;i++){
+    for(int j=0;j<N;j++){
+      if(i!=j  && i<j){
+      int temp=arr[i][j];
+      arr[i][j]=arr[j][i];
+      arr[j][i]=temp;
+      }
+    }
+  }
+  int k=N-1;
+  for(int i=0;i<N/2;i++){
+    for(int j=0;j<N;j++){
+      int temp=arr[k][j];
+      arr[k][j]=arr[i][j];
+      arr[i][j]=temp;
+    }
+    k--;
+  }
+}

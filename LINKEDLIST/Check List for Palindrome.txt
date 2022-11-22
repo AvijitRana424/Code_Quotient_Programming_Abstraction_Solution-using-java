@@ -1,0 +1,31 @@
+/* 
+ *  class Node {
+ *    int data;
+ *    Node next;
+ *  };
+ *
+ *  The above class defines the linked list node.
+ */
+class Result {
+  static int checkPalindrome(Node head) {
+	// Write your code here
+    Node cur = head;
+    Stack<Integer> str = new Stack<>();
+    while(cur != null)
+    {
+      str.push(cur.data);
+      cur = cur.next;
+    }
+    cur = head;
+    while(!str.isEmpty() && cur != null)
+    {
+        if(cur.data != str.peek())
+        {
+          return 0;
+        }
+        str.pop();
+        cur = cur.next;
+    }
+    return 1;
+  }
+}

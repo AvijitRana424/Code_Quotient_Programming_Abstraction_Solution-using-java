@@ -1,0 +1,57 @@
+/* 
+ *  class Node {
+ *    int data;
+ *    Node next;
+ *    Node prev;
+ *  };
+ *
+ *  The above class defines the linked list node.
+ */
+// Return the head of updated list after swapping the two nodes
+Node swapNodes(Node head, int x, int y) {
+  // Write your code here
+  int preX = 0;
+  int preY = 0;
+  Node cur = head;
+  while(cur != null)
+  {
+    if(cur.data == x)
+    {
+      preX = 1;
+    }
+    if(cur.data == y)
+    {
+      preY = 1;
+    }
+    cur = cur.next;
+  }
+  if(preX == 1 && preY == 1)
+  {
+    cur = head;
+    Node dummy = new Node(-1);
+    Node tmp = dummy;
+    while(cur != null)
+    {
+      if(cur.data == x)
+      {
+        Node New = new Node(y);
+        tmp.next = New;
+        tmp = tmp.next;
+      }
+      else if(cur.data == y)
+      {
+        Node New = new Node(x);
+        tmp.next = New;
+        tmp = tmp.next;
+      }
+      else
+      {
+        tmp.next = new Node(cur.data);
+        tmp = tmp.next;
+      }
+      cur = cur.next;
+    }
+    return dummy.next;
+  }
+  return head;
+}

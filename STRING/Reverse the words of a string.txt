@@ -1,0 +1,48 @@
+import java.util.*;
+class Result {
+  static String reverse(String sv)
+  {
+    String val = "";
+    for(int i =sv.length()-1;i>=0;i--)
+    {
+      val += sv.charAt(i);
+    }
+    return val;
+  }
+  static void revWordsString(String str) {
+    // Write your code here
+        ArrayList<String> list = new ArrayList<>();
+        String s = "";
+        for(int i = 0;i<str.length();i++)
+        {
+            if(str.charAt(i) == ' ' || i == str.length()-1)
+            {
+               if(i == str.length()-1)
+               {
+                   s +=str.charAt(i);
+                   list.add(s);
+               }
+               else
+               {
+                   list.add(s);
+                   s = "";
+               }
+            }
+            else
+            {
+                s += str.charAt(i);
+            }
+        }
+       String finalAns = "";
+       for(int i = 0;i<list.size()-1;i++)
+       {
+           String res = list.get(i);
+           String strRes = reverse(res);
+           finalAns += strRes;
+           finalAns += ' ';    
+       }
+       String last = list.get(list.size()-1);
+       finalAns += reverse(last);
+       System.out.println(finalAns);
+  }
+}

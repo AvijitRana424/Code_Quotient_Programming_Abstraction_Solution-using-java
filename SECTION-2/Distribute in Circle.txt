@@ -1,0 +1,12 @@
+class Result {
+  static long distribute(long n, long l, long p) {
+    // Complete the function
+      long pos = n+p-1;
+      long val = pos%l;
+      if(val == 0)
+      {
+        return l;
+      }
+      return val;
+  }
+}

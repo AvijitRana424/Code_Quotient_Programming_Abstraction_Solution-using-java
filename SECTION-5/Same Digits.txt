@@ -1,0 +1,54 @@
+/*     
+ * Complete the 'nextGreator' function below.
+ * @params
+ *   num -> number represented in a string format
+ *
+ * @return
+ *   string representing the next number greater than 'num'
+ *   having the same set of digits.
+ */
+class Result {
+  public static void swap(char[] arr,int left,int right)
+  {
+    char temp = arr[left];
+    arr[left] = arr[right];
+    arr[right] = temp;
+  }
+  public static String nextGreator(String num) {
+    // Write your code here
+    String res = "";
+    int n = num.length();
+    char arr[] = num.toCharArray();
+    int i;
+    for(i = n-1;i>0;i--)
+    {
+      if(arr[i-1] < arr[i])
+      {
+        break;
+      }
+    }
+    if(i == 0)
+    {
+      return "-1";
+    }
+    else
+    {
+      int min = i;
+      int x = arr[i-1];
+      for(int j= i+1;j<n;j++)
+      {
+        if(arr[j] > x)
+        {
+          min = j;
+        }
+      }
+      swap(arr,i-1,min);
+      Arrays.sort(arr,i,n);
+      for(int j = 0;j<arr.length;j++)
+      {
+         res += arr[j];
+      }
+    }
+    return res;
+  }
+}

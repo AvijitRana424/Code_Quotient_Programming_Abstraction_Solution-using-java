@@ -1,0 +1,18 @@
+class Result {
+  // Return the element that will be left in the array after the game ends
+  static long subtractionGame(long[] arr) {
+	// Write your code here
+    //base condition
+    if(arr.length == 1)
+    {
+      return arr[0];
+    }
+    int len = arr.length;
+    long arr1[] = new long[len-1];
+    for(int i = 0;i<len-1;i++)
+    {
+      arr1[i] = arr[i]-arr[i+1];
+    }
+    return subtractionGame(arr1);
+  }
+}

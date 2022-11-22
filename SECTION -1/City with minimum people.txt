@@ -1,0 +1,43 @@
+import java.util.*;
+class Result {
+  /*     
+   * Complete the 'findMin' function below.
+   * @params
+   *   n -> integer denoting the number of cities from 1 to n
+   *   m -> integer denoting the number of phases
+   *   arr -> 2-D array with 'm' rows, where arr[i][0] denotes 'a',
+   *        arr[i][1] denotes 'b' and arr[i][2] denotes 'k' for the ith phase
+   *
+   * @return
+   *   A long integer denoting the minimum number of people settled in any city.
+   */
+  static int findMin(int[] arr1)
+  {
+    int min = arr1[0];
+    for(int i = 0;i<arr1.length;i++)
+    {
+      if(arr1[i]<min)
+      {
+        min = arr1[i];
+      }
+    }
+    return min;
+  }
+  public static long findMin(int n, int m, int[][] arr) {
+    // Write your code here
+    int[] arr1 = new int[n];
+    //int ph = 0;
+    for(int i = 0;i < m ;i++)
+      {
+        int a = arr[i][0];
+        int b = arr[i][1];
+        int c = arr[i][2];
+        for(int j = a-1;j < b;j++)
+        {
+           arr1[j] += c;
+        }
+      }
+    int val = findMin(arr1);
+    return val;
+  }
+}

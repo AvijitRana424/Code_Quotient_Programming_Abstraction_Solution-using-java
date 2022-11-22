@@ -1,0 +1,8 @@
+import java.util.*;
+class Result {
+  static long totalWays(int rollNo[], int N) {
+    // Write your code here
+    double res = Math.pow(2,N);
+    return (long)res-1;
+  }
+}

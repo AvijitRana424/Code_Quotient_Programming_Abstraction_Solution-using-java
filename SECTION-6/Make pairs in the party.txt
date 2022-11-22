@@ -1,0 +1,27 @@
+class Result {
+  static void reverse(int li[])
+  {
+    int left = 0;
+    int right = li.length-1;
+    while(left < right)
+    {
+      int temp = li[left];
+      li[left] = li[right];
+      li[right] = temp;
+      left++;
+      right--;
+    }
+  }
+  static int minResult(int[] boys, int[] girls) {
+	// Write your code here
+     Arrays.sort(girls);
+     Arrays.sort(boys);
+     reverse(boys);
+     int res = 0;
+     for(int i = 0;i<boys.length;i++)
+     {
+       res += boys[i]*girls[i];
+     } 
+     return res;
+  }
+}

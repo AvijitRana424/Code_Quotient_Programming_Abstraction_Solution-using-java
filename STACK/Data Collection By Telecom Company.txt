@@ -1,0 +1,34 @@
+class Result {
+  static int collectData(int height[], int n) {
+    // Write your code here
+    Stack<Integer> str = new Stack<>();
+    int sum = 0;
+    for(int i = n-1;i>=0;i--)
+    {
+      int ele = height[i];
+      if(str.isEmpty())
+      {
+        sum += -1;
+        str.push(ele);
+      }
+      else
+      {
+        while(!str.isEmpty() && str.peek() <= ele)
+        {
+          str.pop();
+        }
+        if(str.isEmpty())
+        {
+          sum += -1;
+          str.push(ele);
+        }
+        else
+        {
+          sum += str.peek();
+          str.push(ele);
+        }
+      }
+    }
+    return sum;
+  }
+}

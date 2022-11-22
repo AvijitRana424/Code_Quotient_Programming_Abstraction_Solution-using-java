@@ -1,0 +1,20 @@
+/*     
+ * Complete the 'countSquares' function below.
+ * @params
+ *   N -> integer denoting the number of entries in array
+ *   arr -> 2-D array where arr[i][0] denotes x and arr[i][1] denotes y of ith testcase
+ *
+ * @return
+ *   An List of integers where each element i contains the number of square numbers in the inclusive interval [x, y] for ith testcase
+ */
+static List<Integer> countSquares(int N, int[][] arr) {
+  // Write your code here
+  ArrayList<Integer> list = new ArrayList<Integer>();
+  for(int i = 0;i<N;i++)
+  {
+    int a = arr[i][0];
+    int b = arr[i][1];
+    list.add((int)Math.floor(Math.sqrt(b))-(int)(Math.ceil(Math.sqrt(a)))+1);
+  }
+  return list;
+}

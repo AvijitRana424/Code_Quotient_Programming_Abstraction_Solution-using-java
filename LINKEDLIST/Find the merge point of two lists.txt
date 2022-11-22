@@ -1,0 +1,70 @@
+/* 
+  class Node {
+    int data;
+    Node next;
+    Node(){}
+    Node(int d) {
+      data=d;
+    }
+  }
+  The above class defines the linked list node.
+*/
+class Result {
+  static int findCnt(Node node)
+  {
+     Node cur = node;
+    int cnt = 0;
+    while(cur != null)
+    {
+      cnt++;
+      cur = cur.next;
+    }
+    return cnt;
+  }
+  static Node findMergePoint(Node head1, Node head2) {
+	// Write your code here
+    int cnt1 = findCnt(head1);
+    int cnt2 = findCnt(head2);
+    if(cnt1 > cnt2)
+    {
+      int idf = cnt1-cnt2;
+      Node cur1 = head1;
+      while(idf != 0)
+      {
+        cur1 = cur1.next;
+        idf--;
+      }
+      Node cur2 = head2;
+      while(cur1 != null && cur2 != null)
+      {
+        if(cur1 == cur2)
+        {
+          return cur1;
+        }
+        cur1 = cur1.next;
+        cur2 = cur2.next;
+      }
+    }
+    else
+    {
+      int diff = cnt2-cnt1;
+      Node cur2 = head2;
+      while(diff != 0)
+      {
+        cur2 = cur2.next;
+        diff--;
+      }
+      Node cur1 = head1;
+      while(cur1 != null && cur2 != null)
+      {
+        if(cur1 == cur2)
+        {
+          return cur1;
+        }
+        cur1 = cur1.next;
+        cur2 = cur2.next;
+      }
+    }
+    return null;
+  }
+}

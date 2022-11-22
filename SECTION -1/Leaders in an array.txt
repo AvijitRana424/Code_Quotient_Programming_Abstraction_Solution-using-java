@@ -1,0 +1,24 @@
+class Result{
+  // Return the array that contains leaders
+  static int[] findTheLeaders(int a[], int n){
+    // Write your code here
+    ArrayList<Integer> list = new ArrayList<>();
+    int leader = a[n-1];
+    list.add(leader);
+    for(int i = n-1;i>=0;i--)
+    {
+        if(a[i] > leader)
+        {
+          leader = a[i];
+          list.add(leader);
+        }
+    }
+    Collections.reverse(list);
+    int ans[] = new int[list.size()];
+    for(int i = 0;i<list.size();i++)
+    {
+      ans[i] = list.get(i);
+    }
+    return ans;
+  }
+}

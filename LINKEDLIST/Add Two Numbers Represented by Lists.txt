@@ -1,0 +1,52 @@
+/* 
+  class Node {
+    int data;
+    Node next;
+    Node(){}
+    Node(int d) {
+      data=d;
+    }
+  }
+  The above class defines the linked list node.
+*/
+class Result {
+  static Node addListNumbers(Node head1, Node head2) {
+	// Write your code here
+    Node cur1 = head1;
+    Node cur2 = head2;
+    int carry = 0;
+    Node dummy = new Node(-1);
+    Node tmp = dummy;
+    while(cur1 != null && cur2 != null)
+    {
+      int sum = cur1.data + cur2.data + carry;
+      carry = sum / 10;
+      tmp.next = new Node(sum % 10);
+      tmp  = tmp.next;
+      cur1 = cur1.next;
+      cur2 = cur2.next;
+    }
+    while(cur1 != null)
+    {
+      int sum1 = cur1.data + carry;
+      carry = sum1 / 10;
+      tmp.next = new Node(sum1%10);
+      tmp  = tmp.next;
+      cur1 = cur1.next;
+    }
+    while(cur2 != null)
+    {
+      int sum2 = cur2.data + carry;
+      carry = sum2 / 10;
+      tmp.next = new Node(sum2%10);
+      tmp  = tmp.next;
+      cur2 = cur2.next;
+    }
+    if(carry != 0)
+    {
+      tmp.next = new Node(carry);
+      tmp = tmp.next;
+    }
+    return dummy.next;
+  }
+}

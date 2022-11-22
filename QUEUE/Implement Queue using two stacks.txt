@@ -1,0 +1,26 @@
+/* push(int), pop(), isEmpty(), isFull() are available on the given Stack. */
+class Queue {
+  void enqueue(CQStack st1, CQStack st2, int item) {
+      if(st1.isEmpty())
+      {
+        st1.push(item);
+      }
+      else
+      {
+        while(!st1.isEmpty())
+        {
+          st2.push(st1.pop());
+        }
+        st1.push(item);
+        while(!st2.isEmpty())
+        {
+          st1.push(st2.pop());
+        }
+      }
+  }
+  int dequeue(CQStack st1, CQStack st2) {
+       int val = st1.pop();
+       //st1.pop();
+       return val;
+  }
+}

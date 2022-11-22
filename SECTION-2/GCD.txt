@@ -1,0 +1,10 @@
+class Result{
+  static long GCD(long a, long b){
+	// Complete the function
+    if(b==0)
+    {
+      return a;
+    }
+    return GCD(b,a%b);
+  }
+}

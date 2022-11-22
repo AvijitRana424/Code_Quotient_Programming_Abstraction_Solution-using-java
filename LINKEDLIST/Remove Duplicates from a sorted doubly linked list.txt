@@ -1,0 +1,30 @@
+/* 
+ *  class LinkList {
+ *    int data;
+ *    LinkList next;
+ *    LinkList prev;
+ *  };
+ *
+ *  The above class defines the linked list node.
+ */
+class Result {
+  static LinkList removeDupsDLL(LinkList head) {
+	// Write your code here
+    if(head == null || head.next == null)
+    {
+      return head;
+    }
+    LinkList cur = head;
+    while(cur != null)
+    {
+      LinkList prev = cur;
+      while(prev != null && prev.data == cur.data)
+      {
+        prev = prev.next;
+      }
+      cur.next = prev;
+      cur = cur.next;
+    }
+    return head;
+  }
+}

@@ -1,0 +1,27 @@
+class Result {
+ /*     
+  * Complete the 'compareSecondArray' function below.
+  * @params
+  *   A -> the First Array
+  *   B -> the Second Array
+  *  
+  * @return
+  *   an integer denoting the final sum
+  */
+  static long compareSecondArray(int[] A, int[] B) {
+    // Write your code here
+    long sum = 0;
+    int in = 0;
+    Arrays.sort(A);
+    Arrays.sort(B);
+    for(int i = 0;i<B.length;i++)
+    {
+      while(in < A.length && A[in] <= B[i])
+      {
+        in++;
+      }
+      sum += in;
+    }
+    return sum;
+  }
+}

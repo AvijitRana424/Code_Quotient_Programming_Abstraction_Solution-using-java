@@ -1,0 +1,14 @@
+static void fib_sequence(int n) {
+  // Write your code here
+  long k = 1;
+  long a = 0;
+  long b = 1;
+  while(k <= n)
+  {
+    System.out.println(a);
+    long c = a+b;
+    a = b;
+    b = c;
+    k++;
+  }
+}

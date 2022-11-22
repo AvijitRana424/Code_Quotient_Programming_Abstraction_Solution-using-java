@@ -1,0 +1,21 @@
+class Result {
+  /*
+   * Return the minimum number of square tiles,
+   * required for covering the m x n rectangular floor
+  */
+  static int findGCD(int m,int n)
+  {
+      if(n == 0)
+      {
+        return m;
+      }
+      return findGCD(n,m%n);
+  }
+  static long minTiles(int m, int n) {
+	// Complete the function
+     int Gcd = findGCD(m,n);
+     int res1 = m/Gcd;
+     int res2 = n/Gcd;
+     return (long)res1*res2;
+  }
+}

@@ -1,0 +1,31 @@
+class Result {
+  /*     
+   * Complete the 'countPoints' function below.
+   * @params
+   *   num -> an integer whose number of points is to be counted
+   * @return
+   *   An integer denoting the number of points in the number
+   */
+  public static int countPoints(int num) {
+    // Write your code here
+    int point = 0;
+    while(num>0)
+    {
+      int rem = num%10;
+      if(rem == 1 || rem == 2 || rem == 3 || rem == 5 || rem == 7)
+      {
+        point += 0;
+      }
+      else if(rem == 0 || rem == 4 || rem == 6  || rem == 9)
+      {
+        point += 1;
+      }
+      else
+      {
+        point += 2;
+      }
+      num /= 10;
+    }
+    return point;
+  }
+}

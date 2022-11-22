@@ -1,0 +1,39 @@
+class Result {
+  /*     
+   * Complete the 'findPowers' function below.
+   * @params
+   *   nums -> integer list containing numbers which are to be checked
+   *
+   * @return
+   *   An integer list,where ith element denotes the result of nums[i]
+   */
+  public static boolean checkPow(int ele)
+  {
+    if(ele == 1)
+    {
+      return true;
+    }
+    if(ele%2 != 0 || ele == 0)
+    {
+      return false;
+    }
+    return checkPow(ele/2);
+  }
+  public static List<Integer> findPowers(List<Integer> nums) {
+    // Write your code here
+    List<Integer> lis = new ArrayList<>();
+    for(Integer ele1 : nums)
+    {
+      boolean res = checkPow(ele1);
+      if(res)
+      {
+        lis.add(1);
+      }
+      else
+      {
+        lis.add(0);
+      }
+    }
+    return lis;
+  }
+}

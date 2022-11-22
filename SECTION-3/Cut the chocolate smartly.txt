@@ -1,0 +1,8 @@
+class Result {
+  static long maxPieces(long k) {
+    // Write your code here
+    long res1 = k/2;
+    long res2 = k-res1;
+    return res1*res2;
+  }
+}

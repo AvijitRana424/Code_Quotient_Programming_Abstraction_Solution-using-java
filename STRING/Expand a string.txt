@@ -1,0 +1,50 @@
+class Result {
+  static int findNum(char arr[],int index)
+  {
+     String st = "";
+     for(int i = index;i<arr.length;i++)
+     {
+       if(Character.isDigit(arr[i]))
+       {
+         st += arr[i];
+       }
+       else
+       {
+         break;
+       }
+     }
+     int nume = Integer.parseInt(st);
+     return nume;
+  }
+  // Return the final string after expansion
+  static String expandString(String str) {
+    // Write your code here
+    if(str.length()==0)
+      return str;
+    char arr[] = str.toCharArray();
+    String prev = "";
+    StringBuilder st = new StringBuilder();
+    for(int i = 0;i<arr.length;i++)
+    {
+      if(Character.isDigit(arr[i]))
+      {
+           int num = findNum(arr,i);
+           for(int j = 1;j<num;j++)
+           {
+             st.append(prev);
+           }
+        	i+= (int)(Math.log10(num));
+        	//prev = '2';
+      }
+      else
+      {
+        String ch = Character.toString(arr[i]);
+        st.append(ch);
+        prev = ch;
+      }
+    }
+    //if(!Character.isDigit(prev))
+      //st.append(prev);
+    return st.toString();
+  }
+}

@@ -1,0 +1,25 @@
+class Result {
+  // Do not print anything in the function
+  // Just modify the given array by left rotating it R times
+  static void rotateArray(int[] arr, int R) {
+    // Write your code here
+      //ArrayList<Integer> arr = new ArrayList<>();
+    //for(int i = R)
+    int[] arr1 = new int[arr.length];
+    int j = 0;
+    for(int i = R;i<arr.length;i++)
+    {
+      arr1[j] = arr[i];
+      j++;
+    }
+    for(int k = 0;k < R;k++)
+    {
+      arr1[j] = arr[k];
+      j++;
+    }
+    for(int p = 0;p<arr1.length;p++)
+    {
+      arr[p] = arr1[p];
+    }
+  }
+}

@@ -1,0 +1,79 @@
+/*     
+ * Complete the 'nextPalindrome' function below.
+ * @params
+ *   num -> number represented in a string format
+ *
+ * @return
+ *   string representing the next smallest palindrome greater than 'num'
+ */
+bool isPalindrome(string);
+string addOne(string);
+string nextPalindrome(string num) {
+  string ini = num;
+    if(isPalindrome(num)){
+        num = addOne(num);
+    }
+    int n = num.size();
+    int l,r;
+    if(n%2 == 0){
+        l = n/2 - 1;
+        r = n/2;
+    }
+    else{
+        l = n/2 - 1;
+        r = n/2 + 1;
+    }
+    while(l>= 0 && r < n){
+        num[r] = num[l];
+        r++;
+        l--;
+    }
+    if(num.size() > ini.size() || num > ini) return num;
+    if(n%2){
+        l = n/2;
+        r = n/2;
+    }
+    else{
+        l = n/2 - 1;
+        r = n/2;
+    }
+    int carry = 1;
+    while(carry){
+            int num2 = num[l] - 48 + carry;
+            if(l == r){
+                num[l] = (char)(num2%10 + '0');
+                carry = num2/10;
+            }
+            else{
+                num[l] = (char)(num2%10 + '0');
+                num[r] = num[l];
+                carry = num2/10;
+            }
+            l--;
+            r++;
+            if(l < 0 || r >= n) break;
+    }
+    if(carry) num = '1' + num + '1';
+    return num;
+}
+bool isPalindrome(string s){
+    int l = 0, r = s.size() - 1;
+    while(l<r){
+        if(s[l] != s[r]) return false;
+        l++;
+        r--;
+    }
+    return true;
+}
+string addOne(string s){
+    int n = s.size();
+    int carry = 1;
+    for(int i = n-1;i>=0;i--){
+        if(carry == 0) break;
+        int diff = (s[i] - 48 + carry);
+        s[i] = (char)('0' + diff%10);
+        carry = diff/10;
+    }
+    if(carry) s = '1'+s;
+    return s;
+}

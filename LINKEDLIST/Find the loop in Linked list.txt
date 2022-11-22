@@ -1,0 +1,32 @@
+/* 
+ *  class Node {
+ *    int data;
+ *    Node next;
+ *  };
+ *
+ *  The above class defines the linked list node.
+ */
+class Result {
+  static int loopInList(Node head) {
+    // Write your code here
+      Node fast = head;
+      Node slow = head;
+      while(fast != null && fast.next != null)
+      {
+        fast = fast.next.next;
+        slow = slow.next;
+        if(slow == fast)
+        {
+           Node temp = slow.next;
+           int cnt = 1;
+           while(slow != temp)
+           {
+             temp = temp.next;
+             cnt++;
+           }
+           return cnt;
+        }
+      }
+    return 0;
+  }
+}

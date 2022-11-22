@@ -1,0 +1,12 @@
+class Result {
+  static long multipleSum(int x) {
+    // Write your code here
+    long s1 = x/3;
+    long s2 = x/5;
+    long s3 = x/15;
+    long res1 = 3*(s1*(s1+1)/2);
+    long res2 = 5*(s2*(s2+1)/2);
+    long res3 = 15*(s3*(s3+1)/2);
+    return res1+res2-res3;
+  }
+}

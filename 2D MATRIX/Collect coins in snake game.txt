@@ -1,0 +1,57 @@
+import java.util.*;
+class Result
+{
+  // Print the number of coins collected from each cell, in the order of snake's movement.
+  static void collectCoins(int board[][], int m, int n) {
+	// Write your code here
+    ArrayList<Integer> list = new ArrayList<>();
+    int top = 0;
+    int down = m-1;
+    int left = 0;
+    int right = n-1;
+    int dir = 0;
+    while(top <= down && left <= right)
+    {
+      if(dir == 0)
+      {
+        for(int i = top;i<=down;i++)
+        {
+          list.add(board[i][left]);
+        }
+        dir = 1;
+        left++;
+      }
+      else if(dir == 1)
+      {
+        for(int i = left;i<=right;i++)
+        {
+          list.add(board[down][i]);
+        }
+        dir = 2;
+        down--;
+      }
+      else if(dir == 2)
+      {
+        for(int i = down;i>=top;i--)
+        {
+          list.add(board[i][right]);
+        }
+        dir = 3;
+        right--;
+      }
+      else if(dir == 3)
+      {
+        for(int i = right;i>=left;i--)
+        {
+          list.add(board[top][i]);
+        }
+        dir = 0;
+        top++;
+      }
+    }
+    for(Integer ele : list)
+    {
+      System.out.print(ele +" ");
+    }
+  }
+}
